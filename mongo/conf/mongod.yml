@@ -1,0 +1,65 @@
+# mongod.conf, Percona Server for MongoDB
+# for documentation of all options, see:
+#   http://docs.mongo.org/manual/reference/configuration-options/
+
+# Where and how to store data.
+storage:
+  dbPath: /data/db
+  journal:
+    enabled: true
+  engine: wiredTiger
+
+# Storage engine various options
+#  More info for wiredTiger: https://docs.mongo.com/v3.4/reference/configuration-options/#storage-wiredtiger-options
+#  wiredTiger:
+#    engineConfig:
+#      cacheSizeGB: 1
+#      checkpointSizeMB: 1000
+#      statisticsLogDelaySecs: 0
+#      journalCompressor: snappy
+#      directoryForIndexes: false
+#    collectionConfig:
+#      blockCompressor: snappy
+#    indexConfig:
+#      prefixCompression: true
+
+
+# Two options below can be used for wiredTiger and inMemory storage engines
+#setParameter:
+#    wiredTigerConcurrentReadTransactions: 128
+#    wiredTigerConcurrentWriteTransactions: 128
+
+# where to write logging data.
+# systemLog:
+# destination: file
+# logAppend: true
+# path: /opt/mongo/mongo_log/mongod.log　　#定义日志文件位置
+
+# processManagement:
+#   fork: true
+  # pidFilePath: /opt/mongo/mongo_log/mongod.pid　　#定义pid位置
+
+# network interfaces
+net:
+  port: 27017
+  bindIp: 0.0.0.0
+  # http:
+  #   JSONPEnabled: false　　#关闭jsonp调用
+  #   RESTInterfaceEnabled: false　　#关闭reset
+
+security:
+  authorization: enabled
+  
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options:
+
+#auditLog:
+
+#snmp:
+
